@@ -84,7 +84,6 @@ export default function ShiftTable({
     ]
   : []),
 
-    // Actions column is visible to both employees and Admin/Manager
     {
       field: "actions",
       headerName: "Actions",
@@ -96,7 +95,6 @@ export default function ShiftTable({
 
         return (
           <div className="table-actions">
-            {/* View is available to everyone */}
             <button
               type="button"
               className="icon-button"
@@ -109,7 +107,6 @@ export default function ShiftTable({
               👁️
             </button>
 
-            {/* Employee actions */}
             {employeeView && shift.status === "PUBLISHED" && (
               <button
                 type="button"
@@ -120,7 +117,6 @@ export default function ShiftTable({
               </button>
             )}
 
-            {/* Admin/Manager actions */}
             {!employeeView && (
               <>
                 {isAdmin &&
@@ -206,5 +202,5 @@ export default function ShiftTable({
         }}
       />
     </div>
-  );
+  )
 }

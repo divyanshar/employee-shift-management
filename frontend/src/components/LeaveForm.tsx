@@ -14,10 +14,9 @@ export default function LeaveForm() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  // Read the leave ID from the URL, if present
   const { id } = useParams();
 
-  // ID exists = edit mode; no ID = create mode
+
   const isEditMode = Boolean(id);
 
   const [form, setForm] = useState<LeaveInput>({
@@ -28,21 +27,18 @@ export default function LeaveForm() {
 
   const [loading, setLoading] = useState(false);
 
-  // Fetch existing leave details when editing
   useEffect(() => {
     if (!id) return;
     async function loadLeave() {
       try {
         setLoading(true);
         const leave = await getLeaveById(id!);
-        // Only pending requests can be edited
         if (leave.status !== "PENDING") {
           window.alert("Only pending leave requests can be edited.");
           navigate("/leaves");
           return;
         }
 
-        // Populate the form with existing values
         setForm({
           startDate: leave.startDate.slice(0, 10),
           endDate: leave.endDate.slice(0, 10),
@@ -77,12 +73,10 @@ export default function LeaveForm() {
 
     try {
       if (isEditMode && id) {
-        // EDIT: update the existing leave request
         const updatedLeave = await updateLeave(id, form);
         dispatch(updateLeaveInStore(updatedLeave));
         toast.success("Leave updated successfully.");
       } else {
-        // CREATE: submit a new leave request
         const newLeave = await createLeave(form);
         dispatch(addLeave(newLeave));
         toast.success("Leave request submitted successfully.");
