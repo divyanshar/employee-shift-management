@@ -73,7 +73,7 @@ export class LeavesService {
     role: Role,
     employeeId: string,
   ): Promise<LeaveDocument> {
-    const leave = await this.leaveModel.findOne({ id }).exec();
+    const leave = await this.leaveModel.findOne({ id });
 
     if (!leave) {
       throw new NotFoundException('Leave request not found');
@@ -94,7 +94,7 @@ export class LeavesService {
 
   // Admin/manager approve a request.
   async approve(id: string): Promise<LeaveDocument> {
-    const leave = await this.leaveModel.findOne({ id }).exec();
+    const leave = await this.leaveModel.findOne({ id });
 
     if (!leave) {
       throw new NotFoundException('Leave request not found');
@@ -147,7 +147,7 @@ export class LeavesService {
 
   // Employee cancels their own pending request.
   async cancel(id: string, employeeId: string): Promise<LeaveDocument> {
-    const leave = await this.leaveModel.findOne({ id }).exec();
+    const leave = await this.leaveModel.findOne({ id });
 
     if (!leave) {
       throw new NotFoundException('Leave request not found');

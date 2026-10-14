@@ -58,7 +58,7 @@ export class ShiftsService {
     role: Role,
     userId: string,
   ): Promise<ShiftDocument> {
-    const shift = await this.shiftModel.findOne({ id }).exec();
+    const shift = await this.shiftModel.findOne({ id });
 
     if (!shift) {
       throw new NotFoundException('Shift not found');
@@ -75,7 +75,7 @@ export class ShiftsService {
     return shift;
   }
   async completeShift(id: string,employeeId:string): Promise<ShiftDocument> {
-    const shift = await this.shiftModel.findOne({ id }).exec();
+    const shift = await this.shiftModel.findOne({ id });
 
     if (!shift) {
       throw new NotFoundException('Shift not found');
