@@ -40,8 +40,7 @@ export class ShiftsService {
 
     // Search by title or department.
     if (search?.trim()) {
-      const cleanSearch = search
-        .trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const cleanSearch = search.trim();
 
       filter.$or = [
         { title: { $regex: cleanSearch, $options: 'i' } },
