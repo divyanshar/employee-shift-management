@@ -246,11 +246,3 @@ Completed and cancelled shifts cannot be reassigned or completed again.
 2. Create a feature branch.
 3. Commit your changes with descriptive messages.
 4. Push the branch and open a pull request.
-
-## License
-
-Add a license if you intend to make the project open source. Until a license is added, reuse and redistribution permissions are not explicitly granted.
-
----
-
-**Employee Shift Management System** — simplifying shift scheduling, employee assignments, and leave management through role-based workflows and scheduling validations.
