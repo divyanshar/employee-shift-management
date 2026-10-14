@@ -128,7 +128,7 @@ Create a `.env` file in the backend directory and configure the required environ
 
 ```env
 PORT=3000
-MONGODB_URI=mongodb://127.0.0.1:27017/employee_shift_management
+MONGODB_URI=
 JWT_SECRET=your_secure_jwt_secret
 ```
 
